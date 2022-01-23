@@ -13,6 +13,8 @@ build:
   number: 1
   script:
     - go run build.go -version v{{ version }} -no-upgrade install
+    - env
+    - find
     - mv bin/* $PREFIX/bin  # [not win]
     - move bin\* %PREFIX%\bin  # [win]
 
