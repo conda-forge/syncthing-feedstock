@@ -13,10 +13,10 @@ build:
   number: 1
   script:
     - go run build.go -version v{{ version }} -no-upgrade install
-    - env
-    - find
+    - mkdir -p $PREFIX/bin  # [not win]
     - mv bin/* $PREFIX/bin  # [not win]
-    - move bin\* %PREFIX%\bin  # [win]
+    - mkdir %LIBRARY_BIN%        # [win]
+    - move bin\* %LIBRARY_BIN%\  # [win]
 
 requirements:
   build:
