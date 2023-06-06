@@ -1,11 +1,11 @@
-About syncthing
-===============
+About syncthing-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/syncthing-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/syncthing/syncthing
 
 Package license: MPL-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/syncthing-feedstock/blob/main/LICENSE.txt)
 
 Summary: Open Source Continuous File Synchronization
 
