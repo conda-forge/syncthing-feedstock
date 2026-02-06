@@ -10,7 +10,7 @@ source:
   sha256: fec36ce20bbcd6e6d1cb70cfb0af7a45c6221581361d9bb92807389b24703a02
 
 build:
-  number: 0
+  number: 1
   script:
     - go run build.go -version v{{ version }} -no-upgrade install
     - mkdir -p $PREFIX/bin  # [not win]
