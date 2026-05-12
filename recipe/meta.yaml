@@ -1,5 +1,5 @@
 {% set name = "syncthing" %}
-{% set version = "2.0.16" %}
+{% set version = "2.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/{{ name }}/{{ name }}/releases/download/v{{ version }}/{{ name }}-source-v{{ version }}.tar.gz
-  sha256: f93836f943967c8fe608e90fd6dc2c419ce00cfa0ca5266caa86c22ae290f169
+  sha256: 9fe7ed66682e3662593a68571e8f13c45158e0997dd0aca28f07ed883a6e0a27
 
 build:
   number: 0
