@@ -1,37 +1,42 @@
-{% set name = "syncthing" %}
-{% set version = "2.1.3" %}
+context:
+  version: "2.1.3"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: syncthing
+  version: ${{ version }}
 
 source:
-  url: https://github.com/{{ name }}/{{ name }}/releases/download/v{{ version }}/{{ name }}-source-v{{ version }}.tar.gz
+  url: https://github.com/syncthing/syncthing/releases/download/v${{ version }}/syncthing-source-v${{ version }}.tar.gz
   sha256: f34bc1b3219e02ac1eca0b1446f582af8fe13f789da5f8c679ba9cac0396bf81
 
 build:
   number: 1
   script:
-    - go run build.go -version v{{ version }} -no-upgrade install
-    - mkdir -p $PREFIX/bin  # [not win]
-    - mv bin/* $PREFIX/bin  # [not win]
-    - mkdir %LIBRARY_BIN%        # [win]
-    - move bin\* %LIBRARY_BIN%\  # [win]
+    - go run build.go -version v${{ version }} -no-upgrade install
+    - if: unix
+      then:
+        - mkdir -p $PREFIX/bin
+        - mv bin/* $PREFIX/bin
+      else:
+        - mkdir %LIBRARY_BIN%
+        - move bin\* %LIBRARY_BIN%\
 
 requirements:
   build:
-    - {{ compiler('go') }}
+    - ${{ compiler("go") }}
 
-test:
-  commands:
-    - which syncthing  # [not win]
-    - where syncthing  # [win]
-    - syncthing --help
+tests:
+  - script:
+      - if: unix
+        then: which syncthing
+        else: where syncthing
+      - syncthing --help
 
 about:
-  home: https://github.com/syncthing/syncthing
-  license: MPL-2.0
+  homepage: https://github.com/syncthing/syncthing
+  repository: https://github.com/syncthing/syncthing
   summary: Open Source Continuous File Synchronization
+  license: MPL-2.0
   license_file: LICENSE
 
 extra:
