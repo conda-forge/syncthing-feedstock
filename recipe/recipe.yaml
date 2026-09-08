@@ -1,5 +1,5 @@
 context:
-  version: "2.1.3"
+  version: "2.1.4"
 
 package:
   name: syncthing
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/syncthing/syncthing/archive/v${{ version }}.tar.gz
-  sha256: 177792c697f61fc25f02d8fc8923dfc57ebb35753bd92c8d32a73d553446d117
+  sha256: 8867c988340fd3c5fd0753f0fa47dab9cc5fdeec31350daa5b11696bc73a8d2c
 
 build:
-  number: 1
+  number: 0
   script:
     - go-licenses save ./cmd/syncthing --save_path library_licenses --ignore github.com/syncthing/ --ignore github.com/jackpal/go-nat-pmp
     - go run build.go -version v${{ version }} -no-upgrade build
