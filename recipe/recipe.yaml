@@ -1,5 +1,5 @@
 context:
-  version: "2.1.6"
+  version: "2.1.7"
 
 package:
   name: syncthing
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/syncthing/syncthing/archive/v${{ version }}.tar.gz
-  sha256: 912cf0cf214a3cb68dedf88fbafc78bb842bfcdc857f5e26c4d3a6971f1a5c8e
+  sha256: e9794cab0adf5b0a59d9b631e994dce055c57cb805228555bdfa68118be4bd0a
 
 build:
   number: 0
